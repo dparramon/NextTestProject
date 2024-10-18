@@ -2,26 +2,56 @@
 	"version": "2.0.0",
 	"tasks": [
 		// {
-		// 	"type": "npm",
-		// 	"script": "dev",
-		// 	"problemMatcher": [],
-		// 	"label": "npm: dev",
-		// 	"detail": "next run dev",
-
+		// 	"label": "Build",
+		// 	"type": "docker-build",
+		// 	"platform": "node",
+		// 	"dockerBuild": {
+		// 		"tag": "Web container",
+		// 		"context": "${workspaceFolder}/app/",
+		// 		"dockerfile": "${workspaceFolder}/Dockerfile",
+		// 		"package": "${workspaceFolder}/package.json"
+		// 	},
+		// 	"group": {
+		// 		"kind": "build",
+		// 		"isDefault": true
+		// 	}
+		// },
+		// {
+		// 	"label": "Run",
+		// 	"type": "docker-run",
+		// 	"platform": "node",
+		// 	"dockerRun": {
+		// 		"tag": "Web container",
+		// 		"containerName": "web",
+		// 		"ports": [{
+		// 			"containerPort": 3000,
+		// 			"hostPort": 3000
+		// 		}],
+		// 		"env": {
+		// 			"NODE_ENV": "development"
+		// 		}
+		// 	},
 		// 	"group": {
 		// 		"kind": "build",
 		// 		"isDefault": true
 		// 	}
 		// },
 		{
-			"type": "npm",
-			"script": "watch",
-			"label": "npm: dev",
-			"problemMatcher": {
-			  "base": "$tsc-watch",
-			  "applyTo": "allDocuments"
+			"label": "Run docker-compose up",
+			"type": "docker-compose",
+			"dockerCompose": {
+			  "up": {
+				"detached": true,
+				"build": true,
+				"services": [
+					"web"
+				]
+			  },
+			  "files": [
+				"${workspaceFolder}/docker-compose.yml",
+			  ]
 			},
-			"isBackground": true
-		  }
+		}
+
 	]
 }

@@ -1,0 +1,11 @@
+services:
+    web:
+      image: node:12
+      container_name: formik-test
+      ports:
+       - 3000:3000
+      build:
+        context: .
+        dockerfile: ./Dockerfile
+      volumes:
+        - .:/app

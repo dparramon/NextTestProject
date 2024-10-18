@@ -1,0 +1,15 @@
+services:
+    web:
+      image: node:12
+      container_name: formik-test
+      ports:
+       - 3000
+       - 9229:9229
+      command: node --inspect=0.0.0.0:9229 ./bin/www
+      environment:
+       NODE_ENV: development
+      build:
+        context: .
+        dockerfile: ./Dockerfile
+      volumes:
+        - .:/app

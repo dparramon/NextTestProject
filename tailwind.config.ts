@@ -1,10 +1,12 @@
-import type { Config } from "tailwindcss";
+import {nextui} from '@nextui-org/react'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@nextui-org/theme/dist/components/(button|card|ripple|spinner).js"
   ],
   extend: {
     content: [
@@ -14,8 +16,10 @@ const config: Config = {
 
       // Or if using `src` directory:
       "./src/**/*.{js,ts,jsx,tsx,mdx}",
+
+      "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
     ],
-  theme: {
+    theme: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -92,7 +96,10 @@ const config: Config = {
           900: "#1a202c",
         }
       },
-      plugins: [],
+      darkMode: "class",
+      plugins: [ 
+        nextui() 
+      ],
     }
   }
 };
