@@ -9,3 +9,4 @@ services:
         dockerfile: ./Dockerfile
       volumes:
         - .:/app
+      command: npm run dev

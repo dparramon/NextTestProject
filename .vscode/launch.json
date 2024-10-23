@@ -5,41 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node",
+            "name": "Debug via Chrome",
+            "type": "chrome",
             "request": "launch",
-            "name": "Docker: Attach to Node",
-            "remoteRoot": "/usr/src/app",
+            "url": "http://localhost:3000",
+            "preLaunchTask": "Docker Run",
         },
-        // {
-        //     "type": "node",
-        //     "request": "launch",
-        //     "name": "Run app and attach debugger",
-        //     "preLaunchTask": "Run docker-compose up",
-        //     "serverReadyAction": {
-        //         "pattern": "listening on port ([0-9]+)",
-        //         "uriFormat": "http://localhost:%s",
-        //         "action": "openExternally"
-        //     }
-        // },
-        // {
-        //     "name": "Docker Node.js Launch",
-        //     "type": "docker",
-        //     "request": "launch",
-        //     "preLaunchTask": "Run docker-compose up",
-        //     "platform": "node",
-        //     "dockerServerReadyAction": {
-        //         "action": "debugWithChrome",
-        //         "pattern": "Debugger listening on (ws:\\/\\/.+)",
-        //         "uriFormat": "http://localhost:3000",
-        //         "webRoot": "${workspaceFolder}/app",
-        //     },
-        // },
-        // {
-        //     "name": "Attach to Node.js",
-        //     "type": "docker",
-        //     "request": "launch",
-        //     "preLaunchTask": "Run",
-        //     "platform": "node",
-        // }
     ]
 }

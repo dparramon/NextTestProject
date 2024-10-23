@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-
     webpack(config) {
         /**
          * Tool to import SVGs as React components.
